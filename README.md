@@ -20,7 +20,7 @@ var lsq = require('lsq')
 
 ### lsq.services.get(service: String) -> Service
 
-  Gets the list of instances for a particular service.
+  Retrieves a particular service.
 
 ### Service
 
