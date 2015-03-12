@@ -1,0 +1,25 @@
+{
+  "name": "lsq",
+  "version": "0.0.1",
+  "description": "The programmatic interface to the lsq.io runtime environment.",
+  "main": "lib/index.js",
+  "dependencies": {
+    "gulp-jshint": "^1.9.2",
+    "lsq-consul": "^1.0.0",
+    "promise": "^6.1.0",
+    "then-on": "^1.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/LiveSqrd/lsq-mod.git"
+  },
+  "keywords": [
+    "lsq"
+  ],
+  "author": "Nathan Zadoks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LiveSqrd/lsq-mod/issues"
+  },
+  "homepage": "https://github.com/LiveSqrd/lsq-mod"
+}
