@@ -24,8 +24,6 @@ var lsq = require('lsq')
 
 ### Service
 
-  {
-   * `hostname`: String // the hostname or IP address of the service
-   * `port`: Integer // the port of the service
-   * `toString() { return this.hostname + ':' + this.port }`
-  }
+  * `hostname`: String // the hostname or IP address of the service
+  * `port`: Integer // the port of the service
+  * `toString() { return this.hostname + ':' + this.port }`
