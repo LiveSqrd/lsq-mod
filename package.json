@@ -4,10 +4,12 @@
   "description": "The programmatic interface to the lsq.io runtime environment.",
   "main": "lib/index.js",
   "dependencies": {
-    "gulp-jshint": "^1.9.2",
     "lsq-consul": "^1.0.0",
     "promise": "^6.1.0",
     "then-on": "^1.1.0"
+  },
+  "devDependencies": {
+    "gulp-jshint": "^1.9.2"
   },
   "repository": {
     "type": "git",
