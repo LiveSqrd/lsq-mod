@@ -62,7 +62,7 @@ function getService (service) {
   if (service === 'consul') return Promise.resolve(undefined)
   if (serviceCache[service]) return Promise.resolve(serviceCache[service])
 
-  var watcher = consul.watch(consul.catalog.service.nodes, { service: service }, function (err, res) {
+  var watcher = consul.watch(consul.health.service, { service: service, passing: true }, function (err, res) {
     if (err) delete serviceCache[service]
     else serviceCache[service] = normaliseNodes(res)
   })
