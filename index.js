@@ -67,7 +67,7 @@ function getService (service) {
     else serviceCache[service] = normaliseNodes(res)
   })
 
-  return (serviceCache[service] = on(watcher, 'change')).then(normaliseNodes)
+  return (serviceCache[service] = on(watcher, 'change').then(normaliseNodes))
 }
 
 function normaliseNodes (nodes) {
