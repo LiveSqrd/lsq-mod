@@ -1,6 +1,6 @@
 {
   "name": "lsq",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "The programmatic interface to the lsq.io runtime environment.",
   "main": "lib/index.js",
   "dependencies": {
