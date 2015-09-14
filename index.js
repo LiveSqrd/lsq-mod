@@ -73,8 +73,8 @@ function getService (service) {
 function normaliseNodes (nodes) {
   var ret = nodes.map(function (node) {
     return {
-      hostname: node.ServiceAddress || node.Address,
-      port: node.ServicePort,
+      hostname: node.Service.Address || node.Node.Address,
+      port: node.Service.Port,
       toString: function () { return this.hostname + ':' + this.port }
     }
   })
