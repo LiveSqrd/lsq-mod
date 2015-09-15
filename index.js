@@ -63,8 +63,20 @@ function getService (service) {
   if (serviceCache[service]) return Promise.resolve(serviceCache[service])
 
   var watcher = consul.watch(consul.health.service, { service: service, passing: true }, function (err, res) {
-    if (err) delete serviceCache[service]
-    else serviceCache[service] = normaliseNodes(res)
+    var nodes
+    if (!err) {
+      try {
+        nodes = normaliseNodes(res)
+      } catch (e) {
+        err = e
+      }
+    }
+
+    if (err) {
+      delete serviceCache[service]
+    } else {
+      serviceCache[service] = nodes
+    }
   })
 
   return (serviceCache[service] = on(watcher, 'change').then(normaliseNodes))
@@ -78,6 +90,10 @@ function normaliseNodes (nodes) {
       toString: function () { return this.hostname + ':' + this.port }
     }
   })
+
+  if (!ret.length) {
+    throw new Error("couldn't find any healthy service instances")
+  }
 
   ret.random = function () {
     return this[Math.random() * this.length | 0]
