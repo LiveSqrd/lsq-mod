@@ -66,7 +66,7 @@ function getService (service) {
     var nodes
     if (!err) {
       try {
-        nodes = normaliseNodes(res)
+        nodes = normaliseNodes(service, res)
       } catch (e) {
         err = e
       }
@@ -82,7 +82,7 @@ function getService (service) {
   return (serviceCache[service] = on(watcher, 'change').then(normaliseNodes))
 }
 
-function normaliseNodes (nodes) {
+function normaliseNodes (service, nodes) {
   var ret = nodes.map(function (node) {
     return {
       hostname: node.Service.Address || node.Node.Address,
@@ -92,7 +92,7 @@ function normaliseNodes (nodes) {
   })
 
   if (!ret.length) {
-    throw new Error("couldn't find any healthy service instances")
+    throw new Error("couldn't find any healthy service instances of "+service)
   }
 
   ret.random = function () {
