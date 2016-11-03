@@ -3,7 +3,7 @@
 if (process.env.META_SOCKET) {
   let services = exports.services = {}
   let config = exports.config = {}
-  let Meta = require('./meta')
+  let Meta = require('lsq-meta')
   config.get = Meta.config.bind(Meta)
   services.list = Meta.services.bind(Meta)
   services.get = Meta.service.bind(Meta)
